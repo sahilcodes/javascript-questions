@@ -1063,8 +1063,8 @@ console.log(typeof sayHi());
 #### Answer: B
 
 The `sayHi` function returns the returned value of the immediately invoked function expression (IIFE). This function returned `0`, which is type `"number"`.
-
-FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
+	
+FYI: `typeof` can return the following list of values: `undefined`, `boolean`, `number`, `bigint`, `string`, `symbol`, `function` and `object`. Note that `typeof null` returns `"object"`.
 
 </p>
 </details>
@@ -2223,7 +2223,7 @@ With the `+` operator, you can concatenate strings. In this case, we are concate
 function* startGame() {
   const answer = yield 'Do you love JavaScript?';
   if (answer !== 'Yes') {
-    return "Oh wow... Guess we're gone here";
+    return "Oh wow... Guess we're done here";
   }
   return 'JavaScript loves you back ❤️';
 }
@@ -2378,7 +2378,7 @@ console.log(shape);
 
 `Object.freeze` makes it impossible to add, remove, or modify properties of an object (unless the property's value is another object).
 
-When we create the variable `shape` and set it equal to the frozen object `box`, `shape` also refers to a frozen object. You can check whether an object is frozen by using `Object.isFrozen`. In this case, `Object.isFrozen(shape)` returns true, since the variable `shape` has a reference to a frozen object.
+When we create the variable `shape` and set it equal to the frozen object `box`, `shape` also refers to a frozen object. You can check whether an object is frozen by using `Object.isFrozen`. In this case, `Object.isFrozen(shape)` would return true, since the variable `shape` has a reference to a frozen object.
 
 Since `shape` is frozen, and since the value of `x` is not an object, we cannot modify the property `x`. `x` is still equal to `10`, and `{ x: 10, y: 20 }` gets logged.
 
@@ -2861,7 +2861,7 @@ console.log(typeof member);
 Classes are syntactical sugar for function constructors. The equivalent of the `Person` class as a function constructor would be:
 
 ```javascript
-function Person() {
+function Person(name) {
   this.name = name;
 }
 ```
